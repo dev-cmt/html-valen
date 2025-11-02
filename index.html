@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valen - Premium Fashion | Bootstrap Enhanced</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="sidebar-close">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <ul class="sidebar-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Collections</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="sidebar-widget">
+            <h3>Categories</h3>
+            <ul class="sidebar-menu">
+                <li><a href="#">Dresses</a></li>
+                <li><a href="#">Tops</a></li>
+                <li><a href="#">Bottoms</a></li>
+                <li><a href="#">Outerwear</a></li>
+                <li><a href="#">Accessories</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3>Contact Info</h3>
+            <p>123 Fashion Street, New York, NY 10001</p>
+            <p>+1 234 567 8900</p>
+            <p>info@valen.com</p>
+        </div>
+    </div>
+    <div class="sidebar-overlay"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#" class="logo">
+                    <!-- Optimized logo with explicit dimensions -->
+                    <img src="images/logo.png" height="45" width="120" alt="Valen Logo" loading="eager">
+                </a>
+
+                <nav class="main-menu d-none d-lg-block">
+                    <ul class="d-flex mb-0">
+                        <li>
+                            <a href="#"><i class="fa-solid fa-person-snowboarding me-2"></i>Skateboards</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-helmet-un me-2"></i>Helmet</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-shirt  me-2"></i>Clothes</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-mitten me-2"></i>Gloves</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa-solid fa-shoe-prints me-2"></i>Shoes</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions d-flex align-items-center">
+                    <a href="#"><i class="fas fa-search"></i></a>
+                    <a href="#" class="position-relative">
+                        <i class="fa-regular fa-heart"></i>
+                        <span class="cart-count">1</span>
+                    </a>
+                    <a href="#" class="position-relative">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">3</span>
+                    </a>
+                    <button class="btn d-lg-none ms-2 sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active">01</button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1">02</button>
+                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2">03</button>
+            </div>
+
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="hero-slide" style="background-image: url('images/h2_slide_bg.jpg');">
+                        <div class="hero-content text-center text-white">
+                            <h1 class="animate__animated animate__fadeInLeft">Spring Collection 2023</h1>
+                            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                                Discover our new collection of elegant and timeless pieces that will elevate your style
+                                this season.
+                            </p>
+                            <a href="#" class="btn-custom animate__animated animate__fadeInUp animate__delay-2s">Shop
+                                Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="hero-slide" style="background-image: url('images/h2_slide_bg.jpg');">
+                        <div class="hero-content text-center text-white">
+                            <h1 class="animate__animated animate__fadeInRight">Summer Essentials</h1>
+                            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                                Lightweight fabrics and vibrant colors for the warmest days of the year.
+                            </p>
+                            <a href="#"
+                                class="btn-custom animate__animated animate__fadeInUp animate__delay-2s">Explore</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="hero-slide" style="background-image: url('images/h2_slide_bg.jpg');">
+                        <div class="hero-content text-center text-white">
+                            <h1 class="animate__animated animate__fadeInDown">Evening Elegance</h1>
+                            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                                Make a statement with our stunning evening wear collection.
+                            </p>
+                            <a href="#"
+                                class="btn-custom animate__animated animate__fadeInUp animate__delay-2s">Discover</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories Section -->
+    <section class="section pt-0">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Discover our carefully curated selection of premium fashion items</p>
+            </div>
+
+            <div class="row">
+                <!-- category item -->
+                <div class="col-sm-12 col-lg-4">
+                    <div class="category-item">
+                        <div class="category-image">
+                            <!-- Optimized image with lazy loading -->
+                            <img src="images/cat-1.png" alt="Category" loading="lazy">
+                        </div>
+                        <div class="category-info">
+                            <h3 class="text-uppercase"><a href="#">Skate Helmet</a></h3>
+                            <p class="text-mute">8 Products</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- category item -->
+                <div class="col-sm-12 col-lg-4">
+                    <div class="category-item">
+                        <div class="category-image">
+                            <!-- Optimized image with lazy loading -->
+                            <img src="images/cat-2.png" alt="Category" loading="lazy">
+                        </div>
+                        <div class="category-info">
+                            <h3 class="text-uppercase"><a href="#">Skate Shoes</a></h3>
+                            <p class="text-mute">5 Products</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- category item -->
+                <div class="col-sm-12 col-lg-4">
+                    <div class="category-item">
+                        <div class="category-image">
+                            <!-- Optimized image with lazy loading -->
+                            <img src="images/cat-3.png" alt="Category" loading="lazy">
+                        </div>
+                        <div class="category-info">
+                            <h3 class="text-uppercase"><a href="#">Skate Gloves</a></h3>
+                            <p class="text-mute">2 Products</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Banner Section -->
+    <section class="bg-light">
+        <div class="row align-items-center">
+            <div class="col-sm-6 col-12">
+                <img src="images/banner/h2-banner-1.jpg" class="img-fluid w-100" alt="">
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-6 col-12 p-0">
+                        <img src="images/banner/h2-banner-2.jpg" class="img-fluid w-100" alt="">
+                    </div>
+                    <div class="col-sm-6 col-12 p-0">
+                        <img src="images/banner/h2-banner-3.jpg" class="img-fluid w-100" alt="">
+                    </div>
+                    <div class="col-sm-12 col-12 p-0">
+                        <img src="images/banner/h2-banner-4.jpg" class="img-fluid w-100" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section">
+        <div class="container-fluid container-md">
+            <div class="section-header text-center mb-4">
+                <h2>Featured Products</h2>
+                <p>Discover our carefully curated selection of premium fashion items</p>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs justify-content-center mb-4" id="productTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all"
+                        type="button" role="tab">All</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="new-tab" data-bs-toggle="tab" data-bs-target="#new" type="button"
+                        role="tab">New</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="sale-tab" data-bs-toggle="tab" data-bs-target="#sale" type="button"
+                        role="tab">Sale</button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="productTabContent">
+
+                <!-- All Products -->
+                <div class="tab-pane fade show active" id="all" role="tabpanel">
+                    <div class="row g-3">
+
+                        <!-- ITEM -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img src="images/product/h_n_1-330x250.jpg" alt="Product 1" loading="lazy">
+                                    <span class="product-badge bg-success">New</span>
+
+                                    <!-- Product Actions -->
+                                    <div class="product-actions">
+                                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                        <a href="#"><i class="fas fa-heart"></i></a>
+                                        <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="#">Elegant Evening Dress</a></h3>
+                                    <div class="product-price">$99.00 <del>$129.00</del></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ITEM -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img src="images/product/h_n_2-330x250.jpg" alt="Product 1" loading="lazy">
+                                    <!-- <span class="product-badge bg-danger">Hot</span> -->
+
+                                    <!-- Product Actions -->
+                                    <div class="product-actions">
+                                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                        <a href="#"><i class="fas fa-heart"></i></a>
+                                        <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="#">Elegant Evening Dress</a></h3>
+                                    <div class="product-price">$99.00 <del>$129.00</del></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ITEM -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img src="images/product/h_n_3-330x250.jpg" alt="Product 1" loading="lazy">
+                                    <span class="product-badge bg-primary">Sale</span>
+
+                                    <!-- Product Actions -->
+                                    <div class="product-actions">
+                                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                        <a href="#"><i class="fas fa-heart"></i></a>
+                                        <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="#">Elegant Evening Dress</a></h3>
+                                    <div class="product-price">$99.00 <del>$129.00</del></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ITEM -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img src="images/product/h_n_8-330x250.jpg" alt="Product 1" loading="lazy">
+                                    <span class="product-badge bg-danger">Hot</span>
+
+                                    <!-- Product Actions -->
+                                    <div class="product-actions">
+                                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                        <a href="#"><i class="fas fa-heart"></i></a>
+                                        <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="#">Elegant Evening Dress</a></h3>
+                                    <div class="product-price">$99.00 <del>$129.00</del></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ITEM -->
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img src="images/product/h_n_5-330x250.jpg" alt="Product 1" loading="lazy">
+                                    <span class="product-badge bg-info">Regular</span>
+
+                                    <!-- Product Actions -->
+                                    <div class="product-actions">
+                                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                        <a href="#"><i class="fas fa-heart"></i></a>
+                                        <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="#">Elegant Evening Dress</a></h3>
+                                    <div class="product-price">$99.00 <del>$129.00</del></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Add more product items here -->
+                    </div>
+                </div>
+
+                <!-- New Products -->
+                <div class="tab-pane fade" id="new" role="tabpanel">
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img src="images/product/h_n_8-330x250.jpg" alt="Product 1" loading="lazy">
+                                    <span class="product-badge bg-success">New</span>
+
+                                    <!-- Product Actions -->
+                                    <div class="product-actions">
+                                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                        <a href="#"><i class="fas fa-heart"></i></a>
+                                        <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="#">Elegant Evening Dress</a></h3>
+                                    <div class="product-price">$99.00 <del>$129.00</del></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more new products -->
+                    </div>
+                </div>
+
+                <!-- Sale Products -->
+                <div class="tab-pane fade" id="sale" role="tabpanel">
+                    <div class="row g-3">
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product-item">
+                                <div class="product-image">
+                                    <img src="images/product/h_n_1-330x250.jpg" alt="Product 1" loading="lazy">
+                                    <span class="product-badge bg-primary">Sale</span>
+
+                                    <!-- Product Actions -->
+                                    <div class="product-actions">
+                                        <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                        <a href="#"><i class="fas fa-heart"></i></a>
+                                        <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <h3><a href="#">Elegant Evening Dress</a></h3>
+                                    <div class="product-price">$99.00 <del>$129.00</del></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more sale products -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SNS Content Section -->
+    <section>
+        <div class="row">
+            <!-- Image Section -->
+            <div class="col-md-6 d-none d-md-block">
+                <img src="images/bg_sns.jpg" class="img-fluid w-100" alt="sns image">
+            </div>
+
+            <!-- Content Section -->
+            <div class="col-md-6 p-4 d-flex flex-column align-items-center justify-content-center">
+                <div class="text-uppercase bg-dark text-white px-2 mb-3 fs-14">
+                    Coming soon
+                </div>
+                <h1>Vintage smooth ripple</h1>
+                <p class="intro-text">
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a type specimen book. We introduce new
+                    products, which will be launched in December 2018.
+                </p>
+
+                <div class="row w-100 text-dark">
+                    <div class="col-12 col-lg-4">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-paintbrush fa-3x me-3"></i>
+                            <div>
+                                <h6 class="text-uppercase text-dark fw-semibold mb-0 ">Design by:</h6>
+                                <p>Komodakir, Jame Amea</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-house-flood-water-circle-arrow-right fa-3x me-3"></i>
+                            <div>
+                                <h6 class="text-uppercase text-dark fw-semibold mb-0">Material:</h6>
+                                <p>Wood, Alley, Plastic</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-person-skiing fa-3x me-3"></i>
+                            <div>
+                                <h6 class="text-uppercase text-dark fw-semibold mb-0">Production type:</h6>
+                                <p>Statuboards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pre-order">
+                    <div class="discount">Pre-order for 20%</div>
+                    <button class="read-more-btn">READ MORE</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Top Rated Products Section -->
+    <section class="section py-5">
+        <div class="container">
+            <div class="section-header text-center mb-4">
+                <p>The products are most interested.</p>
+                <h2>Top Rated Products</h2>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper myProductSwiper position-relative">
+                <div class="swiper-wrapper">
+
+                    <!-- Product Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="product-item">
+                            <div class="product-image">
+                                <img src="images/product/h_n_8-330x250.jpg" alt="Product 1" loading="lazy">
+                                <span class="product-badge bg-success">New</span>
+                                <div class="product-actions">
+                                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                    <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="#">Elegant Evening Dress</a></h3>
+                                <div class="product-price">$99.00 <del>$129.00</del></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repeat for more products -->
+                    <div class="swiper-slide">
+                        <div class="product-item">
+                            <div class="product-image">
+                                <img src="images/product/h_n_8-330x250.jpg" alt="Product 2" loading="lazy">
+                                <span class="product-badge bg-success">New</span>
+                                <div class="product-actions">
+                                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                    <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="#">Stylish Coat</a></h3>
+                                <div class="product-price">$89.00 <del>$110.00</del></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-item">
+                            <div class="product-image">
+                                <img src="images/product/h_n_8-330x250.jpg" alt="Product 3" loading="lazy">
+                                <span class="product-badge bg-success">New</span>
+                                <div class="product-actions">
+                                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                    <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="#">Modern T-Shirt</a></h3>
+                                <div class="product-price">$45.00 <del>$59.00</del></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-item">
+                            <div class="product-image">
+                                <img src="images/product/h_n_8-330x250.jpg" alt="Product 4" loading="lazy">
+                                <span class="product-badge bg-success">New</span>
+                                <div class="product-actions">
+                                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                    <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="#">Casual Hoodie</a></h3>
+                                <div class="product-price">$79.00 <del>$99.00</del></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="product-item">
+                            <div class="product-image">
+                                <img src="images/product/h_n_8-330x250.jpg" alt="Product 4" loading="lazy">
+                                <span class="product-badge bg-success">New</span>
+                                <div class="product-actions">
+                                    <a href="#"><i class="fas fa-shopping-bag"></i></a>
+                                    <a href="#"><i class="fas fa-heart"></i></a>
+                                    <a href="#"><i class="fa-solid fa-code-compare"></i></a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="#">Casual Hoodie</a></h3>
+                                <div class="product-price">$79.00 <del>$99.00</del></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Custom Pagination -->
+                <div class="swiper-pagination custom-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- About Widget -->
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h3>About Valen</h3>
+                        <p>Valen is a premium fashion brand offering elegant and timeless pieces for the modern woman.
+                        </p>
+                        <div class="footer-contact">
+                            <ul>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>123 Fashion Street, New York, NY 10001</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-phone"></i>
+                                    <span>+1 234 567 8900</span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@valen.com</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Information Widget -->
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h3>Information</h3>
+                        <div class="footer-links">
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Delivery Information</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Returns & Exchanges</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Service Widget -->
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h3>Customer Service</h3>
+                        <div class="footer-links">
+                            <ul>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Order History</a></li>
+                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="#">Newsletter</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Widget -->
+                <div class="col-lg-3 col-md-6 mb-5">
+                    <div class="footer-widget">
+                        <h3>Instagram</h3>
+                        <div class="footer-gallery">
+                            <a href="#"><img
+                                    src="https://demo.snstheme.com/wp/valen/wp-content/uploads/2021/05/instagram-1.jpg"
+                                    alt="Instagram 1" loading="lazy"></a>
+                            <a href="#"><img
+                                    src="https://demo.snstheme.com/wp/valen/wp-content/uploads/2021/05/instagram-2.jpg"
+                                    alt="Instagram 2" loading="lazy"></a>
+                            <a href="#"><img
+                                    src="https://demo.snstheme.com/wp/valen/wp-content/uploads/2021/05/instagram-3.jpg"
+                                    alt="Instagram 3" loading="lazy"></a>
+                            <a href="#"><img
+                                    src="https://demo.snstheme.com/wp/valen/wp-content/uploads/2021/05/instagram-4.jpg"
+                                    alt="Instagram 4" loading="lazy"></a>
+                            <a href="#"><img
+                                    src="https://demo.snstheme.com/wp/valen/wp-content/uploads/2021/05/instagram-5.jpg"
+                                    alt="Instagram 5" loading="lazy"></a>
+                            <a href="#"><img
+                                    src="https://demo.snstheme.com/wp/valen/wp-content/uploads/2021/05/instagram-6.jpg"
+                                    alt="Instagram 6" loading="lazy"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Valen. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Defer JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <!-- Inline critical JavaScript -->
+    <script>
+        // Critical JavaScript that needs to run immediately
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sticky header
+            window.addEventListener('scroll', function () {
+                const header = document.querySelector('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('sticky');
+                } else {
+                    header.classList.remove('sticky');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // Sidebar functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebarClose = document.querySelector('.sidebar-close');
+            const sidebar = document.querySelector('.sidebar');
+            const sidebarOverlay = document.querySelector('.sidebar-overlay');
+
+            // Open sidebar
+            sidebarToggle.addEventListener('click', function () {
+                sidebar.classList.add('active');
+                sidebarOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close sidebar
+            function closeSidebar() {
+                sidebar.classList.remove('active');
+                sidebarOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            sidebarClose.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper(".myProductSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            pagination: {
+            el: ".custom-pagination",
+            clickable: true,
+            },
+            navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+            },
+            breakpoints: {
+            576: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            992: { slidesPerView: 4 },
+            },
+        });
+    </script>
+
+
+
+    <!-- Defer non-critical JavaScript -->
+    <script src="non-critical.js" defer></script>
+</body>
+
+</html>
