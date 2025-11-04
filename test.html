@@ -1,37 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vintage Smooth Ripple</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Skateboard Hero Slider</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            background: #f9f5f0;
-            padding: 40px 20px;
-            color: #333;
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            min-height: 700px;
+            max-height: 1200px;
         }
 
-        
+        .hero-slider .carousel {
+            height: 100%;
+        }
 
-        hr {
+        .hero-slider .carousel-inner {
+            height: 100%;
+        }
+
+        .hero-slider .carousel-item {
+            height: 100%;
+        }
+
+        /* Hero Slide */
+        .hero-slide {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0 0 0;
+        }
+
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: auto;
+            padding-top: 60px;
+        }
+
+        .hero-content small {
+            letter-spacing: 4px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            display: block;
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: 72px;
+            font-weight: 900;
+            color: #fff;
+            margin: 10px 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            line-height: 1.1;
+        }
+
+        .hero-content .highlight {
+            color: #f28b8b;
+            display: block;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Custom Button */
+        .btn-custom {
+            background: #f28b8b;
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.4s ease;
             border: none;
-            height: 1px;
-            background: linear-gradient(to right, transparent, #a99276, transparent);
-            margin: 30px 0;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(242, 139, 139, 0.3);
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-custom:hover {
+            background: #000;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hero Product Images - FIXED POSITIONING */
+        .hero-product {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            z-index: 3;
+            height: 45%;
+            max-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .hero-product img.base {
+            width: 100%;
+            max-width: 1200px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            object-fit: contain;
+            height: 100%;
+        }
+
+        .hero-product img.board {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 50%;
+            max-height: 80%;
+            z-index: 4;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+            transition: transform 0.5s ease;
+            object-fit: contain;
+        }
+
+        .hero-product img.board:hover {
+            transform: translateX(-50%) translateY(-10px) rotate(-5deg);
+        }
+
+        /* Carousel Indicators */
+        .hero-slider .carousel-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            display: flex;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .hero-slider .carousel-indicators span {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-slider .carousel-indicators span:hover {
+            color: #f28b8b;
+        }
+
+        .hero-slider .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .hero-slider .carousel-indicators button.active,
+        .hero-slider .carousel-indicators button:hover {
+            background: #f28b8b;
+            border-color: #f28b8b;
+            transform: scale(1.2);
+        }
+
+        /* Carousel Controls */
+        .hero-slider .carousel-control-prev,
+        .hero-slider .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0 20px;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .hero-slider:hover .carousel-control-prev,
+        .hero-slider:hover .carousel-control-next {
+            opacity: 1;
+        }
+
+        .hero-slider .carousel-control-prev:hover,
+        .hero-slider .carousel-control-next:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-slider .carousel-control-prev-icon,
+        .hero-slider .carousel-control-next-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+            100% { transform: translateX(-50%) translateY(0px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1400px) {
+            .hero-content h1 {
+                font-size: 64px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .hero-content h1 {
+                font-size: 56px;
+            }
+            .hero-product img.board {
+                max-width: 45%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-slider {
+                min-height: 600px;
+            }
+            .hero-content h1 {
+                font-size: 48px;
+            }
+            .hero-product {
+                height: 40%;
+            }
+            .hero-product img.board {
+                max-width: 50%;
+            }
+            .hero-slider .carousel-indicators {
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-slider {
+                min-height: 500px;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-content p {
+                font-size: 16px;
+            }
+            .hero-product {
+                height: 35%;
+            }
+            .hero-product img.board {
+                max-width: 60%;
+            }
+            .btn-custom {
+                padding: 14px 30px;
+                font-size: 14px;
+            }
+            .hero-slider .carousel-indicators {
+                gap: 20px;
+                bottom: 15px;
+            }
+            .hero-slider .carousel-indicators span {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .hero-content {
+                padding: 0 15px;
+                padding-top: 40px;
+            }
+            .hero-slider {
+                min-height: 450px;
+            }
+            .hero-product {
+                height: 30%;
+            }
+            .hero-product img.board {
+                max-width: 70%;
+            }
+            .hero-slider .carousel-indicators {
+                gap: 15px;
+            }
+            .hero-slider .carousel-indicators span {
+                font-size: 11px;
+            }
+            .hero-slider .carousel-indicators button {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            .hero-product img.board {
+                max-width: 80%;
+            }
+        }
+
+        /* Landscape Orientation for Mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero-slider {
+                height: 150vh;
+                min-height: 500px;
+            }
+            .hero-content {
+                padding-top: 30px;
+            }
+            .hero-product {
+                height: 50%;
+            }
+        }
+
+        /* Animation Delays for better sequencing */
+        .animate__delay-1s {
+            animation-delay: 0.3s !important;
+        }
+
+        .animate__delay-2s {
+            animation-delay: 0.6s !important;
+        }
+
+        .animate__delay-3s {
+            animation-delay: 0.9s !important;
+        }
+
+        .animate__delay-4s {
+            animation-delay: 1.2s !important;
         }
     </style>
 </head>
-
 <body>
+    <!-- Hero Slider -->
+    <section class="hero-slider">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <span><button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button> 01</span>
+                <span><button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button> 02</span>
+                <span><button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button> 03</span>
+            </div>
 
-    <div class="container">
-        
-    </div>
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="hero-slide" 
+                         style="background-image: url('https://images.unsplash.com/photo-1547447134-cd3f5c716030?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2064&q=80');">
+                        
+                        <!-- Hero Content -->
+                        <div class="hero-content text-center text-white px-3">
+                            <small class="animate__animated animate__fadeIn">Premium Skateboard</small>
+                            <h1 class="animate__animated animate__fadeInUp">
+                                <span class="highlight">Birdhouse</span> Blue Collection
+                            </h1>
+                            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                                "Birdhouse Premium Quality Complete Skateboard Blue Block Logo 8.0” - Engineered for performance and style with premium materials and innovative design.
+                            </p>
+                            <a href="#" class="btn-custom animate__animated animate__fadeInUp animate__delay-2s">Shop Now</a>
+                        </div>
 
+                        <!-- Hero Product Images -->
+                        <div class="hero-product">
+                            <img src="https://i.ibb.co/0Q9n3vN/half-round.png" class="base animate__animated animate__fadeInUp animate__delay-3s" alt="Skateboard Shadow">
+                            <img src="https://i.ibb.co/4Ff0v0Z/skateboard.png" class="board animate__animated animate__fadeInUp animate__delay-4s" alt="Skateboard">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="hero-slide" 
+                         style="background-image: url('https://images.unsplash.com/photo-1571330735066-03aaa9429d89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        
+                        <!-- Hero Content -->
+                        <div class="hero-content text-center text-white px-3">
+                            <small class="animate__animated animate__fadeIn">Summer Collection</small>
+                            <h1 class="animate__animated animate__fadeInRight">
+                                <span class="highlight">Summer</span> Skate Essentials
+                            </h1>
+                            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                                Lightweight decks and vibrant graphics for the warmest days of the year. Perfect for beach cruising and park sessions.
+                            </p>
+                            <a href="#" class="btn-custom animate__animated animate__fadeInUp animate__delay-2s">Explore</a>
+                        </div>
+
+                        <!-- Hero Product Images -->
+                        <div class="hero-product">
+                            <img src="https://i.ibb.co/0Q9n3vN/half-round.png" class="base animate__animated animate__fadeInUp animate__delay-3s" alt="Skateboard Shadow">
+                            <img src="https://i.ibb.co/4Ff0v0Z/skateboard.png" class="board animate__animated animate__fadeInUp animate__delay-4s" alt="Skateboard">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="hero-slide" 
+                         style="background-image: url('https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                        
+                        <!-- Hero Content -->
+                        <div class="hero-content text-center text-white px-3">
+                            <small class="animate__animated animate__fadeIn">Pro Series</small>
+                            <h1 class="animate__animated animate__fadeInDown">
+                                <span class="highlight">Pro</span> Performance Line
+                            </h1>
+                            <p class="animate__animated animate__fadeInUp animate__delay-1s">
+                                Designed for professional skaters with enhanced durability and performance. Make a statement with our premium pro series.
+                            </p>
+                            <a href="#" class="btn-custom animate__animated animate__fadeInUp animate__delay-2s">Discover</a>
+                        </div>
+
+                        <!-- Hero Product Images -->
+                        <div class="hero-product">
+                            <img src="https://i.ibb.co/0Q9n3vN/half-round.png" class="base animate__animated animate__fadeInUp animate__delay-3s" alt="Skateboard Shadow">
+                            <img src="https://i.ibb.co/4Ff0v0Z/skateboard.png" class="board animate__animated animate__fadeInUp animate__delay-4s" alt="Skateboard">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add floating animation to skateboard
+        document.addEventListener('DOMContentLoaded', function() {
+            const boards = document.querySelectorAll('.board');
+            
+            boards.forEach(board => {
+                board.style.animation = 'float 3s ease-in-out infinite';
+            });
+        });
+    </script>
 </body>
-
 </html>
