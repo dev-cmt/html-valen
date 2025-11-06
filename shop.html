@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Sidebar - Nested Categories</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ffd700;
+            --secondary-color: #333;
+            --light-gray: #f5f5f5;
+            --border-color: #e0e0e0;
+            --text-color: #555;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f9f9f9;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar-section {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-header h5 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-header i {
+            transition: transform 0.3s;
+        }
+
+        .sidebar-header.collapsed i {
+            transform: rotate(-90deg);
+        }
+
+        .sidebar-content {
+            overflow: hidden;
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .sidebar-content.expanded {
+            max-height: 1000px;
+            opacity: 1;
+        }
+
+        .form-check {
+            margin-bottom: 8px;
+            padding-left: 0;
+        }
+
+        .form-check-label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nested-category,
+        .sub-nested-category {
+            padding-left: 20px;
+            margin-top: 5px;
+            border-left: 2px solid var(--border-color);
+            display: none;
+        }
+
+        .sub-nested-category {
+            border-left: 2px dashed var(--border-color);
+        }
+
+        .color-circle {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            display: inline-block;
+            position: relative;
+        }
+
+        .form-check-input:checked+.form-check-label .color-circle::after {
+            content: "✓";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .price-range-container {
+            padding: 10px 0;
+        }
+
+        .price-display {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+            margin-top: 8px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 5px;
+            background: var(--light-gray);
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .btn-dark {
+            background-color: var(--secondary-color);
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-weight: 500;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-dark:hover {
+            background-color: #555;
+        }
+
+        .clear-filters {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 14px;
+            text-decoration: underline;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .clear-filters:hover {
+            color: var(--secondary-color);
+        }
+
+        .filter-count {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            margin-left: 6px;
+        }
+
+        .rotated {
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-4">
+
+                <!-- Categories -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header" data-target="categories">
+                        <h5><i class="fas fa-list"></i> Categories <span class="filter-count">0</span></h5>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="sidebar-content" id="categories">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="catAccessories">
+                            <label class="form-check-label" for="catAccessories">Accessories</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input parent-checkbox" id="catSkate">
+                            <label class="form-check-label" for="catSkate">
+                                Skate <i class="fas fa-chevron-right" style="margin-left:auto;font-size:12px;"></i>
+                            </label>
+                            <div class="nested-category">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input parent-checkbox" id="subSkateHelmet">
+                                    <label class="form-check-label" for="subSkateHelmet">
+                                        Skate Helmet <i class="fas fa-chevron-right"
+                                            style="margin-left:auto;font-size:12px;"></i>
+                                    </label>
+                                    <div class="sub-nested-category">
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="subSubSkateHelmetRed">
+                                            <label class="form-check-label" for="subSubSkateHelmetRed">Red
+                                                Helmet</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="subSubSkateHelmetBlack">
+                                            <label class="form-check-label" for="subSubSkateHelmetBlack">Black
+                                                Helmet</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="subSkateShoes">
+                                    <label class="form-check-label" for="subSkateShoes">Skate Shoes</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brands -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header" data-target="brands">
+                        <h5><i class="fas fa-tag"></i> Brands <span class="filter-count">0</span></h5>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="sidebar-content" id="brands">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="brandNike">
+                            <label class="form-check-label" for="brandNike">Nike</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header" data-target="price">
+                        <h5><i class="fas fa-dollar-sign"></i> Price</h5>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="sidebar-content" id="price">
+                        <div class="price-range-container">
+                            <input type="range" min="18" max="500" id="priceRange">
+                            <div class="price-display">
+                                <span>$<span id="minPrice">18</span></span>
+                                <span>$<span id="maxPrice">500</span></span>
+                            </div>
+                        </div>
+                        <button class="btn-dark">Apply</button>
+                    </div>
+                </div>
+
+                <!-- Colors -->
+                <div class="sidebar-section">
+                    <div class="sidebar-header" data-target="colors">
+                        <h5><i class="fas fa-palette"></i> Colors <span class="filter-count">0</span></h5>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="sidebar-content" id="colors">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="colorBlack">
+                            <label class="form-check-label" for="colorBlack"><span class="color-circle"
+                                    style="background:black;"></span> Black</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="colorRed">
+                            <label class="form-check-label" for="colorRed"><span class="color-circle"
+                                    style="background:red;"></span> Red</label>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="clear-filters">Clear All Filters</span>
+
+            </div>
+
+            <div class="col-md-8">
+                <div class="alert alert-info">
+                    <h4>Product Grid Area</h4>
+                    <p>Filtered products will appear here. In Laravel, read selected checkboxes via GET/POST/AJAX.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Toggle Sidebar Sections
+        document.querySelectorAll('.sidebar-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = document.getElementById(header.dataset.target);
+                content.classList.toggle('expanded');
+                header.classList.toggle('collapsed');
+            });
+        });
+
+        // Toggle nested subcategories
+        document.querySelectorAll('.parent-checkbox + .form-check-label i').forEach(arrow => {
+            arrow.addEventListener('click', e => {
+                e.stopPropagation(); // prevent parent toggle
+                const nested = arrow.closest('.form-check').querySelector('.nested-category, .sub-nested-category');
+                if (nested) nested.style.display = nested.style.display === 'block' ? 'none' : 'block';
+                arrow.classList.toggle('rotated');
+            });
+        });
+
+        // Price range
+        const priceRange = document.getElementById('priceRange');
+        const minPrice = document.getElementById('minPrice');
+        priceRange.addEventListener('input', () => { minPrice.textContent = priceRange.value; });
+
+        // Filter Counts
+        function updateCounts() {
+            ['categories', 'brands', 'colors'].forEach(id => {
+                const section = document.getElementById(id);
+                const count = section.querySelectorAll('input[type="checkbox"]:checked').length;
+                section.closest('.sidebar-section').querySelector('.filter-count').textContent = count;
+            });
+        }
+        document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.addEventListener('change', updateCounts));
+
+        // Clear filters
+        document.querySelector('.clear-filters').addEventListener('click', () => {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            priceRange.value = 18; minPrice.textContent = 18;
+            document.querySelectorAll('.nested-category, .sub-nested-category').forEach(n => n.style.display = 'none');
+            updateCounts();
+        });
+
+        // Initialize counts
+        updateCounts();
+    </script>
+
+</body>
+
+</html>

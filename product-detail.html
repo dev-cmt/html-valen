@@ -14,150 +14,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
-
-    
-    <style>
-        :root {
-            --primary: #f7c600;
-            --accent: #000;
-        }
-
-        /* Main Image Styles */
-        .main-image-container {
-            position: relative;
-            overflow: hidden;
-            background: #fff;
-            width: 100%;
-            height: 450px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-            cursor: zoom-in;
-        }
-
-        .main-product-image {
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-
-        .image-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--accent);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .image-actions {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            display: flex;
-            gap: 10px;
-        }
-
-        .action-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .action-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .swiper {
-            width: 100%;
-            padding-top: 15px;
-        }
-
-        .swiper-slide {
-            width: 80px !important;
-            height: 80px;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .swiper-slide-thumb-active {
-            border-color: var(--primary);
-        }
-
-        .swiper-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .swiper-button-next, .swiper-button-prev{
-            position: absolute;
-            margin-top: -9px;
-            background: #f7c600;
-            color: #fff;
-            height: auto;
-            width: auto;
-            padding: 2px;
-        }
-        .swiper-button-next:after, .swiper-button-prev:after{
-            font-size: 16px;
-        }
-    </style>
-
-    <style>
-        .product-info h2 {
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .product-info .price {
-            font-size: 1.8rem;
-            color: #000;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .add-to-cart-btn {
-            background-color: #f7c600;
-            border: none;
-            font-weight: 600;
-            padding: 8px 20px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .add-to-cart-btn:hover {
-            background-color: #111111;
-            color: #fff;
-        }
-
-        .social-share a {
-            color: #333;
-            margin-right: 10px;
-            transition: 0.3s;
-        }
-
-        .social-share a:hover {
-            color: #f7c600;
-        }
-    </style>
 </head>
 
 <body>
@@ -188,35 +44,31 @@
                             <div class="action-btn" id="like-btn"><i class="far fa-heart"></i></div>
                         </div>
                         <img id="main-product-image"
-                            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80"
+                            src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1000&q=80"
                             alt="Premium Wireless Headphones" class="main-product-image" data-fancybox="gallery">
                     </div>
 
                     <!-- Swiper Thumbnail Slider -->
                     <div class="swiper mySwiper mt-3">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide swiper-slide-thumb-active"
-                                data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80">
-                                <img
-                                    src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=200&q=80"
-                                    alt="">
-                            </div>
                             <div class="swiper-slide"
                                 data-image="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=1000&q=80">
-                                <img
-                                    src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=200&q=80"
+                                <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=200&q=80"
+                                    alt="">
+                            </div>
+                            <div class="swiper-slide swiper-slide-thumb-active"
+                                data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=80">
+                                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=200&q=80"
                                     alt="">
                             </div>
                             <div class="swiper-slide"
                                 data-image="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=1000&q=80">
-                                <img
-                                    src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=200&q=80"
+                                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=200&q=80"
                                     alt="">
                             </div>
                             <div class="swiper-slide"
                                 data-image="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=1000&q=80">
-                                <img
-                                    src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=200&q=80"
+                                <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=200&q=80"
                                     alt="">
                             </div>
                         </div>
@@ -243,30 +95,31 @@
                     risus faucibus, luctus iaculis dolor. Suspendisse dignissim purus vitae finibus efficitur.</p>
 
                 <div class="d-flex align-items-center mb-3">
-                    <input type="number" value="1" min="1" class="form-control me-3" style="width: 60px;">
+                    <input type="number" value="1" min="1" class="form-control quantity-input">
                     <button class="add-to-cart-btn">ADD TO CART</button>
                 </div>
 
                 <hr>
+                <div class="product-summary">
+                    <p><strong>SKU:</strong> v-gallery</p>
+                    <p><strong>Categories:</strong> Skate, Skate Helmet, Accessories</p>
+                    <p><strong>Tags:</strong> Helmet, Skate helmet</p>
 
-                <p><strong>SKU:</strong> v-gallery</p>
-                <p><strong>Categories:</strong> Skate, Skate Helmet, Accessories</p>
-                <p><strong>Tags:</strong> Helmet, Skate helmet</p>
-
-                <div class="social-share mt-3">
-                    <span>Share:</span>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <div class="social-share">
+                        <strong>Share:</strong>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Product Description Tabs -->
-    <section class="container my-5">
-        <ul class="nav nav-tabs mb-3" id="productTab" role="tablist">
+    <section class="product-description container my-5">
+        <ul class="d-flex justify-content-center nav nav-tabs mb-3" id="productTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description"
                     type="button">Description</button>
@@ -285,10 +138,27 @@
             </li>
         </ul>
 
-        <div class="tab-content border p-4 rounded shadow-sm" id="productTabContent">
+        <div class="tab-content" id="productTabContent">
             <div class="tab-pane fade show active" id="description">
-                <p>Immerse yourself in pristine audio with the AudioPro X500 wireless headphones. Featuring
-                    advanced noise cancellation, 30-hour battery life, and premium comfort for all-day listening.</p>
+                <h2>Description</h2>
+                <p>
+                    Phasellus nulla turpis, commodo vitae eleifend eget, auctor eget nibh. Pellentesque commodo turpis
+                    eu metus vehicula commodo. Etiam vulputate nisi dui, vitae semper odio iaculis at. Pellentesque
+                    fermentum vitae odio ut tincidunt. Proin condimentum venenatis facilisis. Etiam rhoncus pulvinar
+                    risus. Suspendisse hendrerit efficitur sodales. Etiam ultrices scelerisque feugiat. Cras suscipit
+                    pharetra sodales. Integer malesuada pellentesque tellus.
+                </p>
+                <p>
+                    Mauris quis pulvinar libero, eget ultricies neque. Fusce quis elit sit amet magna commodo tristique
+                    pellentesque sit amet ex. Nulla quis nibh vel lorem sollicitudin convallis sed sed risus. Curabitur
+                    gravida, arcu in congue gravida, elit enim posuere orci, eget tempor lacus quam a ante. Aliquam a
+                    massa risus. Integer condimentum metus quis consectetur iaculis. Integer sagittis sem in rutrum
+                    convallis. Pellentesque vehicula accumsan ipsum, sit amet mollis nibh congue eget. Quisque vehicula
+                    ligula sed nisl consequat congue. Praesent purus ex, condimentum sed dolor sed, pulvinar hendrerit
+                    quam. Integer pulvinar enim a orci rhoncus pharetra. In non finibus nisl. Vivamus nec hendrerit
+                    libero. Donec urna lacus, volutpat vel felis elementum, mollis venenatis dolor. Donec auctor ligula
+                    ut massa posuere, nec auctor magna sodales. Fusce eu porta velit, eu ultricies nisi.
+                </p>
             </div>
             <div class="tab-pane fade" id="additional">
                 <ul class="list-unstyled mb-0">
@@ -297,14 +167,154 @@
                     <li><i class="fas fa-check text-success me-2"></i> Foldable design for portability</li>
                 </ul>
             </div>
-            <div class="tab-pane fade" id="reviews">
-                <p><strong>John Doe:</strong> Amazing sound quality! Highly recommended.</p>
-                <p><strong>Jane Smith:</strong> Very comfortable and great battery life.</p>
+            <div class="tab-pane fade show" id="reviews">
+                <div class="reviews-section">
+                    <!-- Overall Rating Summary -->
+                    <div class="rating-summary text-center mb-4">
+                        <h3 class="fw-bold">Customer Reviews</h3>
+                        <div class="average-rating display-5 fw-bold text-warning">4.5 <span class="fs-6 text-dark">/
+                                5</span></div>
+                        <div class="stars text-warning mb-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-alt"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <p class="text-muted">Based on 2 reviews</p>
+                    </div>
+
+                    <hr>
+
+                    <!-- Reviews List -->
+                    <div class="review-item d-flex mb-4">
+                        <img src="https://i.pravatar.cc/60?img=12" alt="User" class="rounded-circle me-3" width="60"
+                            height="60">
+                        <div>
+                            <h6 class="mb-1">John Doe <small class="text-muted">– March 5, 2024</small></h6>
+                            <div class="stars text-warning mb-1">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="text-muted mb-0">Amazing quality! Fits perfectly and feels premium. Would
+                                definitely recommend.</p>
+                        </div>
+                    </div>
+
+                    <div class="review-item d-flex mb-4">
+                        <img src="https://i.pravatar.cc/60?img=32" alt="User" class="rounded-circle me-3" width="60"
+                            height="60">
+                        <div>
+                            <h6 class="mb-1">Jane Smith <small class="text-muted">– February 22, 2024</small></h6>
+                            <div class="stars text-warning mb-1">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-alt"></i>
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <p class="text-muted mb-0">Stylish and durable! The design is sleek, and it feels
+                                lightweight.</p>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Add Review Form -->
+                    <div class="add-review">
+                        <h5 class="fw-bold mb-3">Write a Review</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">Your Rating:</label>
+                                <div class="star-rating">
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="email" class="form-control" placeholder="Your Email" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Write your review here..."
+                                    required></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-dark px-4 fw-semibold">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
             </div>
+
             <div class="tab-pane fade" id="size-chart">
-                <p>Headphone dimensions: 7.5 x 6.5 x 3 inches</p>
-                <p>Weight: 250g</p>
+                <div class="size-chart-section">
+                    <h4 class="fw-bold mb-3">Size Chart</h4>
+                    <p class="text-muted">Find your perfect fit by referring to our size guide below.</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center align-middle size-chart-table">
+                            <thead class="table-dark">
+                                <tr style="border-style: none;">
+                                    <th>Size</th>
+                                    <th>Head Circumference (cm)</th>
+                                    <th>Head Circumference (inch)</th>
+                                    <th>Recommended Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>XS</td>
+                                    <td>48 – 52</td>
+                                    <td>18.9 – 20.5</td>
+                                    <td>3 – 6 years</td>
+                                </tr>
+                                <tr>
+                                    <td>S</td>
+                                    <td>52 – 56</td>
+                                    <td>20.5 – 22.0</td>
+                                    <td>7 – 12 years</td>
+                                </tr>
+                                <tr>
+                                    <td>M</td>
+                                    <td>56 – 58</td>
+                                    <td>22.0 – 22.8</td>
+                                    <td>Teen / Small Adult</td>
+                                </tr>
+                                <tr>
+                                    <td>L</td>
+                                    <td>58 – 60</td>
+                                    <td>22.8 – 23.6</td>
+                                    <td>Adult</td>
+                                </tr>
+                                <tr>
+                                    <td>XL</td>
+                                    <td>60 – 62</td>
+                                    <td>23.6 – 24.4</td>
+                                    <td>Large Adult</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="text-muted mt-3">
+                        <strong>Tip:</strong> Measure the circumference of your head about 2.5 cm above your eyebrows
+                        for the most accurate result.
+                    </p>
+                </div>
             </div>
+
         </div>
     </section>
 
