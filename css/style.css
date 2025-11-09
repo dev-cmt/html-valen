@@ -1166,7 +1166,6 @@ header.sticky .header-actions a {
 
 
 /* SNS Content Section */
-/* SNS Content Section */
 .sns-section {
     display: flex;
     justify-content: center;
@@ -1368,16 +1367,16 @@ header.sticky .header-actions a {
 
 
 /* Swiper Pagination Adjustment */
-.swiper-pagination {
+.myProductSwiper .swiper-pagination {
     position: static;
 }
 
-.custom-pagination {
+.myProductSwiper .custom-pagination {
     bottom: 0 !important;
     text-align: center;
 }
 
-.swiper-pagination-bullet {
+.myProductSwiper .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
     background: #ccc;
@@ -1387,7 +1386,7 @@ header.sticky .header-actions a {
     transition: all 0.3s ease;
 }
 
-.swiper-pagination-bullet-active {
+.myProductSwiper .swiper-pagination-bullet-active {
     background: var(--primary-color);
     width: 22px;
     border-radius: 10px;
@@ -1517,7 +1516,7 @@ footer {
 }
 
 
-/* ========== Hero Section ========== */
+/* ========== Hero Banner Section ========== */
 .hero-banner {
     margin-top: 90px;
     background-color: #ececec;
@@ -1576,6 +1575,9 @@ footer {
 /*========================================================
                 PROUDCT DETAIL PAGE
 ========================================================*/
+.product-card{
+    padding: 0;
+}
 /* Proudct Image Gallary */
 .main-image-container {
     position: relative;
@@ -1636,12 +1638,12 @@ footer {
     transform: scale(1.1);
 }
 
-.swiper {
+.product-gallery .swiper {
     width: 100%;
     padding-top: 15px;
 }
 
-.swiper-slide {
+.product-gallery .swiper-slide {
     width: 80px !important;
     height: 80px;
     border-radius: 8px;
@@ -1652,18 +1654,18 @@ footer {
     position: relative;
 }
 
-.swiper-slide-thumb-active {
+.product-gallery .swiper-slide-thumb-active {
     border-color: var(--primary-color);
 }
 
-.swiper-slide img {
+.product-gallery .swiper-slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.product-gallery .swiper-button-next,
+.product-gallery .swiper-button-prev {
     position: absolute;
     margin-top: -9px;
     background: var(--primary-color);
@@ -1673,8 +1675,8 @@ footer {
     padding: 2px;
 }
 
-.swiper-button-next:after,
-.swiper-button-prev:after {
+.product-gallery .swiper-button-next:after,
+.product-gallery .swiper-button-prev:after {
     font-size: 16px;
 }
 
